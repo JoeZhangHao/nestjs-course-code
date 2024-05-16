@@ -19,22 +19,20 @@ import { TestFilter } from './test.filter';
     // },
     {
       provide: APP_INTERCEPTOR,
-      useClass: TimeInterceptor
+      useClass: TimeInterceptor,
     },
     {
       provide: APP_PIPE,
-      useClass: ValidatePipe
+      useClass: ValidatePipe,
     },
     {
       provide: APP_FILTER,
-      useClass: TestFilter
+      useClass: TestFilter,
     },
   ],
 })
-export class AppModule implements NestModule{
-
+export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LogMiddleware).forRoutes('aaa*');
   }
-
 }
